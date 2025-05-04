@@ -1,11 +1,12 @@
-package calculator;
+package stepdefs;
 
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.junit.Assert;
 import calculator.Calculator;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.junit.Before;
 
 public class MyStepdefs {
     private Calculator calculator;
@@ -27,6 +28,7 @@ public class MyStepdefs {
 
     @When("^I add the two values$")
     public void iAddTheTwoValues() {
+        calculator = new Calculator();
         result = calculator.add(value1, value2);
         System.out.print(result);
     }
