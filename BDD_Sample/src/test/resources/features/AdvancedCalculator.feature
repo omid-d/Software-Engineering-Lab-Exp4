@@ -194,3 +194,31 @@ Feature: OurCalculator - Comprehensive Test Suite
     Then the result should be 5
     When I multiply the two numbers
     Then the result should be 0
+
+
+  Scenario Outline: Comprehensive arithmetic operations
+    Given Two input numbers, <num1> and <num2>
+    When I perform <operation> on the two numbers
+    Then the result should be <result>
+
+    Examples: Basic Operations
+      | num1 | num2 | operation | result    |
+      | 10   | 2    | add       | 12        |
+      | 10   | 2    | subtract  | 8         |
+      | 10   | 2    | multiply  | 20        |
+      | 10   | 2    | divide    | 5         |
+      | 2    | 3    | power     | 8         |
+      | -5   | -3   | add       | -8        |
+      | -5   | -3   | multiply  | 15        |
+      | 0    | 5    | add       | 5         |
+      | 5    | 0    | multiply  | 0         |
+      | -4   | 2    | power     | 16        |
+
+    Examples: Edge Cases
+      | num1      | num2       | operation | result           |
+      | 0         | 0          | add       | 0                |
+      | 1         | -2147483648| power     | 1                |
+      | 2         | 31         | power     | 2147483648       |
+      | 46340     | 46340      | multiply  | 2147395600       |
+
+
